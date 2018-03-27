@@ -15,6 +15,8 @@ public class Main {
                 .concat(String.valueOf(" Altura: \n"+u.getAltura())))));
 
         pessoas.forEach(u -> System.out.println(u.getNome()+", sua data de Nascimento: "+ (GregorianCalendar.getInstance().get(Calendar.YEAR) - u.getIdade()) ));
+
+        pessoas.parallelStream().filter(p -> p.getIdade() <23).forEach(p -> System.out.println(p.getIdade()));
     }
 }
 
